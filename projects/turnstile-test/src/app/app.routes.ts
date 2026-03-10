@@ -3,6 +3,6 @@ import { Form } from './form/form';
 import { Success } from './success/success';
 
 export const routes: Routes = [
-    { path: '', component: Form },
-    { path: 'success', component: Success }
+    { path: '/turnstile-test', component: Form },
+    { path: '/turnstile-test/success', component: Success }
 ];

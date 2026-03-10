@@ -29,15 +29,7 @@
                 "input": "projects/turnstile-test/public"
               }
             ],
-            "styles": ["projects/turnstile-test/src/styles.scss"],
-            "outputMode": "server",
-            "server": "projects/turnstile-test/src/main.server.ts",
-            "security": {
-              "allowedHosts": []
-            },
-            "ssr": {
-              "entry": "projects/turnstile-test/src/server.ts"
-            }
+            "styles": ["projects/turnstile-test/src/styles.scss"]
           },
           "configurations": {
             "production": {

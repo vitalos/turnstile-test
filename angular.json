@@ -29,7 +29,8 @@
                 "input": "projects/turnstile-test/public"
               }
             ],
-            "styles": ["projects/turnstile-test/src/styles.scss"]
+            "styles": ["projects/turnstile-test/src/styles.scss"],
+            "outputMode": "static"
           },
           "configurations": {
             "production": {

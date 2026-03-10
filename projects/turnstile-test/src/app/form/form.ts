@@ -46,6 +46,6 @@ export class Form {
   }
 
   moveOn() {
-    this.router.navigate(['/success']);
+    this.router.navigate(['./success']);
   }
 }

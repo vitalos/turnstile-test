@@ -30,7 +30,14 @@
               }
             ],
             "styles": ["projects/turnstile-test/src/styles.scss"],
-            "outputMode": "static"
+            "outputMode": "server",
+            "server": "projects/turnstile-test/src/main.server.ts",
+            "security": {
+              "allowedHosts": []
+            },
+            "ssr": {
+              "entry": "projects/turnstile-test/src/server.ts"
+            }
           },
           "configurations": {
             "production": {

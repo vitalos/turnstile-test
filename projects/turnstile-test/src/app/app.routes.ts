@@ -5,7 +5,7 @@ import { App } from './app';
 
 export const routes: Routes = [
     { path: '', component: App },
-    { path: '/form', component: Form },
-    { path: '/success', component: Success },
-    { path: '**', redirectTo: '/form' }
+    { path: 'form', component: Form },
+    { path: 'success', component: Success },
+    { path: '**', redirectTo: 'form' }
 ];

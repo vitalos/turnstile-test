@@ -30,7 +30,7 @@
               }
             ],
             "styles": ["projects/turnstile-test/src/styles.scss"],
-            "outputMode": "server",
+            "outputMode": "static",
             "server": "projects/turnstile-test/src/main.server.ts",
             "security": {
               "allowedHosts": []

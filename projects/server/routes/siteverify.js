@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+router.options('/siteverify', function(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.sendStatus(200);
+});
+
 router.post('/siteverify', async function(req, res, next) {
   const body = JSON.parse(req.body);
   const turnstileResponse = body.turnstileResponse;

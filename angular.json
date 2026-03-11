@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "baseHref": "/turnstile-test/",
             "deployUrl": "/turnstile-test/",
             "browser": "projects/turnstile-test/src/main.ts",
             "tsConfig": "projects/turnstile-test/tsconfig.app.json",

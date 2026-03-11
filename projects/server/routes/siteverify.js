@@ -16,7 +16,7 @@ router.post('/', async function(req, res) {
   corsHeaders(res);
   
   const body = req.body;
-  const turnstileResponse = body.turnstileResponse;
+  const turnstileResponse = body.response;
   const challengeBody = JSON.stringify({
     secret: process.env.TURNSTILE_SECRET_KEY,
     response: turnstileResponse,

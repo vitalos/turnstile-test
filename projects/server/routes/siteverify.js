@@ -1,25 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
-router.options('/siteverify', function(req, res) {
+router.options('/', function(req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   res.sendStatus(200);
 });
 
-router.post('/siteverify', async function(req, res, next) {
+router.post('/', async function(req, res) {
   const body = JSON.parse(req.body);
   const turnstileResponse = body.turnstileResponse;
+  const challengeBody = JSON.stringify({
+    secret: process.env.TURNSTILE_SECRET_KEY,
+    response: turnstileResponse,
+  });
   await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
     },
-    body: new URLSearchParams({
-      secret: process.env.TURNSTILE_SECRET_KEY,
-      response: turnstileResponse,
-    }),
+    body: challengeBody,
   })
     .then((response) => response.json())
     .then((data) => {

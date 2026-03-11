@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="moveOn()">
     <input type="text" placeholder="Nonsense" />
-    <ngx-turnstile formControlName="turnstile" siteKey="0x4AAAAAACowXhAjg-rA1q-n" theme="light" />
+    <ngx-turnstile formControlName="turnstile" siteKey="0x4AAAAAACowXhAjg-rA1q-n" theme="light" retry="never" />
     <button type="submit" [disabled]="form.invalid">Submit</button>
 </form>

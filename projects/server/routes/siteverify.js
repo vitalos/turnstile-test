@@ -1,15 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
-router.options('/', function(req, res) {
+function corsHeaders(res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
+}
+
+router.options('/', function(req, res) {
+  corsHeaders(res);
   res.sendStatus(200);
 });
 
 router.post('/', async function(req, res) {
-  const body = JSON.parse(req.body);
+  corsHeaders(res);
+  
+  const body = req.body;
   const turnstileResponse = body.turnstileResponse;
   const challengeBody = JSON.stringify({
     secret: process.env.TURNSTILE_SECRET_KEY,
@@ -29,6 +35,10 @@ router.post('/', async function(req, res) {
           success: false,
           error: data['error-codes'],
         });
+      } else {
+        return res.json({
+          success: true,
+        });
       }
     })
     .catch((error) => {
@@ -38,10 +48,6 @@ router.post('/', async function(req, res) {
         error: 'Verification failed',
       });
     });
-
-  res.json({
-    success: true,
-  });
 });
 
 module.exports = router;

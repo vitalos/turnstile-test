@@ -7,6 +7,7 @@ export const routes: Routes = [
     { path: 'turnstile-test', component: App, children: [
         { path: 'form', component: Form },
         { path: 'success', component: Success },
-        { path: '**', redirectTo: 'form' }
+        { path: '', redirectTo: 'form', pathMatch: 'full' },
+        { path: '**', redirectTo: 'form', pathMatch: 'full' },
     ]},
 ];
